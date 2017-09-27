@@ -1,6 +1,8 @@
 .POSIX:
 
-.PHONY: all clean install update-po
+.PHONY: all clean fpc gpc install update-po
+
+.SUFFIXES:
 .SUFFIXES: .mo .o .pas .po .pot $(EXEEXT)
 
 SHELL = /bin/sh
@@ -10,14 +12,6 @@ CPDIR ?= cp -rf
 FIND ?= find
 RM ?= rm -fv
 RMDIR ?= rm -fr
-
-# For Free Pascal:
-PC ?= fpc
-PCFLAGS ?=
-
-# For GNU Pascal:
-# PC ?= gpc
-# PCFLAGS ?= --automake --extended-syntax -DSUPPORTS_ISO_10206 -lintl
 
 PREFIX ?= /usr
 DATADIR ?= $(PREFIX)/share
@@ -30,7 +24,13 @@ LOCALEDIR ?= $(DATADIR)/locale
 EXEEXT ?=
 
 all guess$(EXEEXT): update-po
-	$(PC) $(PCFLAGS) -oguess$(EXEEXT) guess.pas
+	$(PC) $(PFLAGS) -oguess$(EXEEXT) guess.pas
+
+fpc:
+	$(MAKE) PC=fpc PFLAGS="-Miso $(PFLAGS)"
+
+gpc:
+	$(MAKE) PC=gpc PFLAGS="--automake --extended-syntax -DSUPPORTS_ISO_10206 -lintl $(PFLAGS)"
 
 clean:
 	# A bit convoluted, but we never know what file names a compiler might make
@@ -46,7 +46,7 @@ install: all
 	done
 
 po/guess.pot: guess.pas
-	xgettext -LJavaScript -o $@ $<
+	xgettext --no-location -LJavaScript -o $@ $<
 
 update-po: po/guess.pot
 	for po in po/*.po; \

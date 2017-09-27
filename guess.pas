@@ -1,7 +1,5 @@
 program Guess(Input, Output);
 
-{$mode iso}
-
 { FPC supports ISO 7185, but not ISO 10206 }
 {$IFDEF SUPPORTS_ISO_10206}
 import
@@ -76,7 +74,7 @@ begin
           if lives > 0 then
           begin
             Write(gettext('Try again!'));
-            WriteLn(lives:fwidth, gettext(' lives remaining'));
+            WriteLn(lives:fwidth - 1, gettext(' lives remaining'));
           end
           else
           begin
