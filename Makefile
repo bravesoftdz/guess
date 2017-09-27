@@ -26,11 +26,8 @@ EXEEXT ?=
 all guess$(EXEEXT): update-po
 	$(PC) $(PFLAGS) -oguess$(EXEEXT) guess.pas
 
-fpc:
-	$(MAKE) PC=fpc PFLAGS="-Miso $(PFLAGS)"
-
 gpc:
-	$(MAKE) PC=gpc PFLAGS="--automake --extended-syntax -DSUPPORTS_ISO_10206 -lintl $(PFLAGS)"
+	$(MAKE) PC=gpc PFLAGS="--automake $(PFLAGS)"
 
 clean:
 	# A bit convoluted, but we never know what file names a compiler might make

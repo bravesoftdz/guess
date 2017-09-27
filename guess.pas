@@ -1,5 +1,15 @@
 program Guess(Input, Output);
 
+{$IFDEF FPC}
+{$MODE iso}
+{$ENDIF}
+
+{$IFDEF __GPC__}
+{$DEFINE SUPPORTS_ISO_10206}
+{$X+}
+{$l intl}
+{$ENDIF}
+
 { FPC supports ISO 7185, but not ISO 10206 }
 {$IFDEF SUPPORTS_ISO_10206}
 import
@@ -8,16 +18,6 @@ import
 { Change this if you install into another directory }
 const
   DomainDir = '/usr/share/locale';
-{$ELSE}
-{$IFNDEF __GPC__}
-  type
-    String = array[0..255] of char;
-{$ENDIF}
-
-  function gettext(s: String): String;
-  begin
-    gettext := s;
-  end;
 {$ENDIF}
 
 
@@ -31,6 +31,16 @@ var
   lives: integer{$IFDEF SUPPORTS_ISO_10206} value 5{$ENDIF};
   number: integer;
   rnumber: integer;
+
+{$IFNDEF SUPPORTS_ISO_10206}
+type
+  String = array[0..255] of char;
+
+function gettext(s: String): String;
+begin
+  gettext := s;
+end;
+{$ENDIF}
 
 begin
 {$IFDEF SUPPORTS_ISO_10206}
@@ -78,7 +88,7 @@ begin
           end
           else
           begin
-            WriteLn('You lose!');
+            WriteLn(gettext('You lose!'));
             WriteLn(gettext('The correct solution was:'), number:fwidth);
           end;
         end;
@@ -91,7 +101,7 @@ begin
         end
         else
         begin
-          Put(Input);
+          Get(Input);
           WriteLn(gettext('That is not a number!'));
           Get(Input);
         end;

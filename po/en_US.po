@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-26 21:37-0400\n"
-"PO-Revision-Date: 2017-09-26 19:33-0400\n"
+"POT-Creation-Date: 2017-09-27 01:06-0400\n"
+"PO-Revision-Date: 2017-09-27 01:09-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -17,20 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: guess.pas:71
 msgid "Enter a number, from 0 to"
 msgstr "Enter a number, from 0 to"
 
+#: guess.pas:78
 msgid "Correct!"
 msgstr "Correct!"
 
+#: guess.pas:88
 msgid "Try again!"
 msgstr "Try again!"
 
+#: guess.pas:89
 msgid " lives remaining"
 msgstr " lives remaining"
 
+#: guess.pas:93
+msgid "You lose!"
+msgstr "You lose!"
+
+#: guess.pas:94
 msgid "The correct solution was:"
 msgstr "The correct solution was:"
 
+#: guess.pas:107
 msgid "That is not a number!"
 msgstr "That is not a number!"
