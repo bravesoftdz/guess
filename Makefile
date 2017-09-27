@@ -46,9 +46,9 @@ install: all
 	done
 
 po/guess.pot: guess.pas
-	xgettext --no-location -LJavaScript -o $@ $<
+	xgettext -LJavaScript -o $@ $<
 
-update-po: po/guess.pot
+update-po:
 	for po in po/*.po; \
 	do \
 		$(MAKE) $$(echo $$po | sed -e 's/\.po$$/.mo/'); \

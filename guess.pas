@@ -91,7 +91,7 @@ begin
         end
         else
         begin
-          WriteLn;
+          Put(Input);
           WriteLn(gettext('That is not a number!'));
           Get(Input);
         end;
