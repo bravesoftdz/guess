@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-27 01:06-0400\n"
+"POT-Creation-Date: 2017-09-27 11:29-0400\n"
 "PO-Revision-Date: 2017-09-27 01:09-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: German\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 # Übersetzer: Ich muss die seltsame Syntax benutzen, weil Standardpascal keine Formatfunktion hat.
-#: guess.pas:71
+#: guess.pas:69
 msgid "Enter a number, from 0 to"
 msgstr "Eine Zahl einzugeben, von 0 bis"
 
-#: guess.pas:78
+#: guess.pas:76
 msgid "Correct!"
 msgstr "Richtig!"
 
-#: guess.pas:88
+#: guess.pas:86
 msgid "Try again!"
 msgstr "Versuchen Sie wieder!"
 
-#: guess.pas:89
+#: guess.pas:87
 msgid " lives remaining"
 msgstr " übrige Leben"
 
-#: guess.pas:93
+#: guess.pas:91
 msgid "You lose!"
 msgstr "Sie verlieren!"
 
-#: guess.pas:94
+#: guess.pas:92
 msgid "The correct solution was:"
 msgstr "Die richtige Lösung war:"
 
-#: guess.pas:107
+#: guess.pas:105
 msgid "That is not a number!"
 msgstr "Das ist keine Zahl!"

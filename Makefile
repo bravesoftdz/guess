@@ -48,9 +48,7 @@ po/guess.pot: guess.pas
 update-po:
 	for po in po/*.po; \
 	do \
-		$(MAKE) $$(echo $$po | sed -e 's/\.po$$/.mo/'); \
+		mo=$$(echo $$po | sed -e 's/\.po$$/.mo/'); \
+		msgmerge -Uq $$po po/guess.pot; \
+		msgfmt -o $$mo $$po; \
 	done
-
-.po.mo: po/guess.pot
-	msgmerge -Uq $< po/guess.pot
-	msgfmt -o $@ $<
